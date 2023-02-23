@@ -12,7 +12,7 @@ import com.ibtech.util.HibernateUtil;
 public class CustomerDbo {
 	
 	//save object
-	public void saveCustomer(Customer customer) {
+	public Customer saveCustomer(Customer customer) {
 		
 		Transaction transaction = null;
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
@@ -25,12 +25,13 @@ public class CustomerDbo {
 			//commit the transaction
 			transaction.commit();
 			
-			
+			return customer;
 		}catch(Exception e){
 			if(transaction != null) {
 				transaction.rollback();
 			}
 			System.out.println(e);
+			return null;
 		}
 		
 	}

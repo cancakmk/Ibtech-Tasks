@@ -5,6 +5,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ibtech.bag.Bag;
+import com.ibtech.bag.BagKey;
 import com.ibtech.command.CommandExecuter;
 import com.ibtech.command.operation.CustomerOperation;
 import com.ibtech.dbo.AccountDbo;
@@ -133,26 +135,38 @@ public class App
     	//getAllDatas(customerList, accountList, addressList, phoneList);
     	//updateDatas(customerList, accountList, addressList, phoneList);
     	//deleteAllDatas(customerList, accountList, addressList, phoneList); 
-    		Customer customer = new Customer("Mehmet", "Mol");
+    		
+    	
+    	
+    	
+    	
+    	
+    		
 
     		CustomerOperation customerOperations = new CustomerOperation();
-//    	
-//	
-			try {
-				CommandExecuter.executer("Add_customer_info").invoke(customerOperations, customerList,customer);
-			} catch (IllegalArgumentException e) {
-				
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-//			
-//		
+    		
+    		
+    		
+    		Bag bagAdd = new Bag();
+    		bagAdd.put(BagKey.CNAME, "Okan");
+    		bagAdd.put(BagKey.CSURNAME, "Saraç");
+
+    		Bag customerBag = CommandExecuter.executer("Add_customer_info", bagAdd);
+
+//			try {
+//				CommandExecuter.executer("Add_customer_info").invoke(customerOperations, customerList,customer);
+//			} catch (IllegalArgumentException e) {
+//				
+//				e.printStackTrace();
+//			} catch (IllegalAccessException e) {
+//				e.printStackTrace();
+//			} catch (InvocationTargetException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		
-    		System.out.println("WantedFunction: "+commenddbo.getCommand("Add_account_info"));
+		
+    		System.out.println("WantedCommand: "+commenddbo.getCommand("Add_account_info"));
 
     	
     	
