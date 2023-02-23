@@ -1,11 +1,15 @@
 package com.ibtech;
 
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ibtech.command.CommandExecuter;
+import com.ibtech.command.operation.CustomerOperation;
 import com.ibtech.dbo.AccountDbo;
 import com.ibtech.dbo.AddressDbo;
+import com.ibtech.dbo.CommandDbo;
 import com.ibtech.dbo.CustomerDbo;
 import com.ibtech.dbo.PhoneDbo;
 import com.ibtech.model.Account;
@@ -85,7 +89,7 @@ public class App
     	System.out.println();
     	phoneList.forEach((n) -> System.out.println(phoneDao.getPhoneById(n.getId())));
     	
-    	;
+    	
     	
     	
     	
@@ -114,6 +118,11 @@ public class App
     	AccountDbo accountDao = new AccountDbo();
     	AddressDbo addressDao = new AddressDbo();
     	PhoneDbo phoneDao = new PhoneDbo();
+    	CommandDbo commenddbo=new CommandDbo();
+    	
+    	
+    	
+    
     	
     	List<Customer> customerList =customerDao.getAllCustomers() ;
     	List<Account> accountList = accountDao.getAllAccounts();
@@ -124,6 +133,30 @@ public class App
     	//getAllDatas(customerList, accountList, addressList, phoneList);
     	//updateDatas(customerList, accountList, addressList, phoneList);
     	//deleteAllDatas(customerList, accountList, addressList, phoneList); 
+    		Customer customer = new Customer("Mehmet", "Mol");
+
+    		CustomerOperation customerOperations = new CustomerOperation();
+//    	
+//	
+			try {
+				CommandExecuter.executer("Add_customer_info").invoke(customerOperations, customerList,customer);
+			} catch (IllegalArgumentException e) {
+				
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+//			
+//		
+		
+    		System.out.println("WantedFunction: "+commenddbo.getCommand("Add_account_info"));
+
+    	
+    	
+    	
     	
 
     }
