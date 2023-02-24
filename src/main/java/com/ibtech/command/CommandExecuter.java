@@ -1,18 +1,17 @@
 package com.ibtech.command;
 
 import java.lang.reflect.Method;
-import java.util.List;
-
 import com.ibtech.bag.Bag;
 import com.ibtech.dbo.CommandDbo;
 import com.ibtech.model.Command;
-import com.ibtech.model.Customer;
+
 
 
 public class CommandExecuter {
 
 	
-	public static Bag executer(String commandName,Bag bag)  {
+	
+	public static  Bag executer(String commandName,Bag bag)  {
 		try {
 			CommandDbo commandDao = new CommandDbo();
 			Command command = commandDao.getCommand(commandName);
@@ -23,10 +22,14 @@ public class CommandExecuter {
 
 			Class<?> c = Class.forName("com.ibtech.command.operation." + command.getClassName());
 		
-			Object obj = c.newInstance();
+			
+			Object obj = c.getDeclaredConstructor().newInstance();
 			Method method;
 			Bag dbBag;
+			
+			
 			if (!bag.getMap().isEmpty()) {
+			
 				method = c.getDeclaredMethod(command.getMethodName(), Bag.class);
 				dbBag = (Bag) method.invoke(obj, bag);
 

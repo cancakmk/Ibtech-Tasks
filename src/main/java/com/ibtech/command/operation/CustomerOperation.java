@@ -19,7 +19,7 @@ public class CustomerOperation {
 	
 	
 	
-	public Bag add(Bag bag) {
+	public Bag Add(Bag bag) {
 		String name = (String) bag.getValue(BagKey.CNAME);
 		String surname = (String) bag.getValue(BagKey.CSURNAME);
 
@@ -27,7 +27,7 @@ public class CustomerOperation {
 		Customer createdCustomer = customerDao.saveCustomer(customer);
 		
 		Bag createdCustomerBag = new Bag();
-		createdCustomerBag.put(BagKey.CID, createdCustomer.getId());
+		//createdCustomerBag.put(BagKey.CID, createdCustomer.getId());
 		createdCustomerBag.put(BagKey.CNAME, createdCustomer.getName());
 		createdCustomerBag.put(BagKey.CSURNAME, createdCustomer.getSurname());
 		
@@ -36,18 +36,9 @@ public class CustomerOperation {
 	
 public void Update() {
 	System.out.println("Update Çalıştı");
-		
-		
-		
-		
-		
-	}
+}
 public void Delete() {
 	System.out.println("Delete Çalıştı");
-	
-	
-	
-	
 	
 }
 

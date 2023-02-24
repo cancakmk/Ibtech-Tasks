@@ -1,0 +1,5 @@
+ <customer>
+        <commandName>Add_customer_info</commandName>
+        <customerName>Okan</customerName>
+        <cutomerSurname>Sarac</cutomerSurname>
+ </customer>
