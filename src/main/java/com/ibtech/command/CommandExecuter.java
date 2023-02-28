@@ -11,7 +11,7 @@ public class CommandExecuter {
 
 	
 	
-	public static  Bag executer(String commandName,Bag bag)  {
+	public static   Bag executer(String commandName,Bag bag)  {
 		try {
 			CommandDbo commandDao = new CommandDbo();
 			Command command = commandDao.getCommand(commandName);

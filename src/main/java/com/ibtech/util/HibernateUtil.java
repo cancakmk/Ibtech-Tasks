@@ -34,7 +34,7 @@ public class HibernateUtil {
 
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
-				settings.put(Environment.HBM2DDL_AUTO, "none");
+				settings.put(Environment.HBM2DDL_AUTO, "update");
 
 				configuration.setProperties(settings);
 			
