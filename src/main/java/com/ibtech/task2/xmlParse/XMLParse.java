@@ -44,7 +44,7 @@ public class XMLParse {
 		return resultBag;	
 	}
 	
-	public Bag XMLParseAndCommandRun(String body) throws Exception {
+	 public Bag XMLParseAndCommandRun(String body) throws Exception {
 
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();

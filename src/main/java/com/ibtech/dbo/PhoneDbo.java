@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import com.ibtech.model.Customer;
 import com.ibtech.model.Phone;
 
 import com.ibtech.util.HibernateUtil;

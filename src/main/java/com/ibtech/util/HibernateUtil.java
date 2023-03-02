@@ -11,9 +11,11 @@ import org.hibernate.service.ServiceRegistry;
 
 import com.ibtech.model.Account;
 import com.ibtech.model.Address;
+import com.ibtech.model.BatchData;
 import com.ibtech.model.Command;
 import com.ibtech.model.Customer;
 import com.ibtech.model.Phone;
+import com.ibtech.model.SpecialAccount;
 
 
 public class HibernateUtil {
@@ -30,7 +32,7 @@ public class HibernateUtil {
 				settings.put(Environment.PASS, "12345");
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 
-				settings.put(Environment.SHOW_SQL, "true");
+				settings.put(Environment.SHOW_SQL, "false");
 
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
@@ -43,6 +45,9 @@ public class HibernateUtil {
 				configuration.addAnnotatedClass(Customer.class);
 				configuration.addAnnotatedClass(Phone.class);
 				configuration.addAnnotatedClass(Command.class);
+
+				configuration.addAnnotatedClass(BatchData.class);
+				configuration.addAnnotatedClass(SpecialAccount.class);
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
