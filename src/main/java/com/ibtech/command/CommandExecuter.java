@@ -8,10 +8,7 @@ import com.ibtech.model.Command;
 
 
 public class CommandExecuter {
-
-	
-	
-	public static   Bag executer(String commandName,Bag bag)  {
+public static   Bag executer(String commandName,Bag bag)  {
 		try {
 			CommandDbo commandDao = new CommandDbo();
 			Command command = commandDao.getCommand(commandName);
@@ -47,8 +44,6 @@ public class CommandExecuter {
 		}
 		return null;		
 	}
-	
-	
 	private static boolean isValue(Command command) {
 		if (command == null) {
 			System.out.println("Command Couldn't Found");
@@ -57,10 +52,6 @@ public class CommandExecuter {
 		System.out.println("-> Command Information; \n\t" + 
 		command.getCommandName() + "\n\t" + command.getClassName() + "\n\t" + command.getMethodName());
 		return true;
-	}
-	
-	
-
-	}
+	}}
 
 
