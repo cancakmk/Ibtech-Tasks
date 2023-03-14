@@ -19,9 +19,6 @@ public class ThreadTesting {
 	public static void main(String[] args) {
 		//addDatas();
 		execute(20);
-		
-		
-		
 	}
 	
 	
@@ -44,20 +41,8 @@ public class ThreadTesting {
 					
 				}else {
 					BatchData batchData = new BatchData(false, (int) account.getId(),(Math.random()*10)+1,'B' );
-					batchDataDao.create(batchData);
-					
-				}
-				
-				
-				
-			}
-		}
-		
-		
-		
-		
-	}
-	
+					batchDataDao.create(batchData);	
+				}}}}
 	
 	public static void execute(int threadcount) {
 
